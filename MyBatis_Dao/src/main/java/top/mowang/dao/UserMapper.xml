@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.mowang.dao.UserDao">
+    <!--查询语句，id表示语句唯一
+       #{}：占位符，表示从java程序中传入过来的数据
+   -->
+    <select id="selectUserById" resultType="top.mowang.pojo.User">
+        select * from t_user where id = #{id}
+    </select>
+
+    <select id="selectAll" resultType="top.mowang.pojo.User">
+        select * from t_user
+    </select>
+
+    <insert id="addUser" >
+        insert into t_user values(#{id},#{name},#{password},#{email},#{money})
+    </insert>
+
+</mapper>
