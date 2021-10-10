@@ -15,6 +15,7 @@
     <insert id="addUser">
         insert into t_user values(#{id},#{name},#{password},#{email},#{money})
     </insert>
+
     <!--约束文件
     http://mybatis.org/dtd/mybatis-3-mapper.dtd
     定义和限制当前文件中可以使用的标签和属性，以及标签出现的顺序

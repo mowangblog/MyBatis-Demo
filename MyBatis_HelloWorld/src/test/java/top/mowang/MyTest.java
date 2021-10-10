@@ -35,11 +35,12 @@ public class MyTest {
         String resource = "mybatis.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-        try (SqlSession session = sqlSessionFactory.openSession()) {
-            User user = new User(4, "蔚来", "12312", "sdfoa@qq.com", 1334.4);
+        //openSession(boolean) boolean决定是否自动提交事务
+        try (SqlSession session = sqlSessionFactory.openSession(true)) {
+            User user = new User(5, "莫旺旺", "12312", "sdfoa@qq.com", 1334.4);
             int insert = session.insert("top.mowang.dao.UserDao.addUser",user);
-            //需要提交事务
-            session.commit();
+            //mybatis默认是手动提交事务,insert delete update需要提交事务
+//            session.commit();
             System.out.println(insert);
         }
     }

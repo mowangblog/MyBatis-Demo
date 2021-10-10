@@ -28,12 +28,4 @@ public interface UserDao {
      */
     User selectUserById(Integer id);
 
-    /**
-     * 添加用户
-     * @return int
-     * @description:
-     * @author: Xuan Li
-     * @date: 2021/10/10 22:11
-    */
-    int addUser();
 }
