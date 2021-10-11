@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.mowang.dao.UserDao">
+
+
+    <!--使用java对象传参，mybatis调用get方法获取参数
+    resultType 可以使用全限定名或者别名
+    推荐使用全限定名
+    <!-声明别名-->
+<!--    <typeAliases>-->
+<!--        <typeAlias type="top.mowang.pojo.User" alias="user"></typeAlias>-->
+<!--    </typeAliases>-->
+<!--    &ndash;&gt;-->
+    <select id="selectUserByUser" resultType="user" >
+        select * from t_user where username = #{name} or email = #{email}
+    </select>
+    <select id="selectUserCount" resultType="java.lang.Long" >
+        select count(*) from t_user
+    </select>
+
+    <select id="selectAll" resultMap="customMap" >
+        select * from t_user
+    </select>
+
+    <resultMap id="customMap" type="top.mowang.pojo.User">
+        <id column="id" property="id"/>
+    </resultMap>
+
+    <select id="selectLike" resultMap="customMap" >
+        select * from t_user where username like #{name}
+    </select>
+
+</mapper>
