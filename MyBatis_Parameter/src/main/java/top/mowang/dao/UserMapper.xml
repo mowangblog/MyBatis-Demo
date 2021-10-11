@@ -13,5 +13,19 @@
         select * from t_user where id = #{id}
     </select>
 
+    <!--多个简单参数使用@Param
+      完整格式#{name,javaType=java.lang.String,jdbcType=VARCHAR}
+      #{arg0}#{arg1}按位置传参
+      还可以使用map对象传递参数，通过key获取#{key}
+      ${}占位符是字符串拼接，有sql注入风险，常用于列名表名
+    <select id="selectUserByMulti" resultType="top.mowang.pojo.User" >
+        select * from t_user where username = #{name,javaType=java.lang.String,jdbcType=VARCHAR} or email = #{email}
+    </select>
+
+    <!--使用java对象传参，mybatis调用get方法获取参数-->
+    <select id="selectUserByUser" resultType="top.mowang.pojo.User" >
+        select * from t_user where username = #{name} or email = #{email}
+    </select>
+
 
 </mapper>
