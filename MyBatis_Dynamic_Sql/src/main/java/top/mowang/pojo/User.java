@@ -14,6 +14,10 @@ public class User {
     private String email;
     private Double money;
 
+    public User(Integer id) {
+        this.id = id;
+    }
+
     public Integer getId() {
         return id;
     }

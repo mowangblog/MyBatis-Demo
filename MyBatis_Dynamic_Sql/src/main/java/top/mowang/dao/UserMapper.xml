@@ -3,7 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="top.mowang.dao.UserDao">
-
+    <!--代码片段-->
+    <sql id="selectUser">
+        select * from t_user
+    </sql>
+    
     <select id="selectIf" resultType="top.mowang.pojo.User" >
         select * from t_user
         <where>
@@ -15,6 +19,25 @@
             </if>
         </where>
     </select>
+    
+    <select id="selectForeach" resultType="top.mowang.pojo.User">
+        select * from t_user
+        <if test="list != null and list.size>0">
+            where id in
+            <foreach collection="list" open="(" close=")" separator="," item="id">
+                #{id}
+            </foreach>
+        </if>
+    </select>
 
+    <select id="selectForeach2" resultType="top.mowang.pojo.User">
+        <include refid="selectUser"></include>
+        <if test="list != null and list.size>0">
+            where id in
+            <foreach collection="list" open="(" close=")" separator="," item="item">
+                #{item.id}
+            </foreach>
+        </if>
+    </select>
 
 </mapper>

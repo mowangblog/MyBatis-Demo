@@ -23,5 +23,23 @@ public interface UserDao {
     */
     List<User> selectIf(User user);
 
+    /**
+     * 循环语句查询
+     * @param list
+     * @return list
+     * @author : Xuan Li
+     * @website : https://mowangblog.top
+     * @date : 2021/10/12 19:51
+     **/
+    List<User> selectForeach(List<Integer> list);
 
+    /**
+     * 循环语句查询
+     * @param list
+     * @return list
+     * @author : Xuan Li
+     * @website : https://mowangblog.top
+     * @date : 2021/10/12 19:51
+     **/
+    List<User> selectForeach2(List<User> list);
 }
