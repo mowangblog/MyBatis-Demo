@@ -8,10 +8,10 @@
         select * from t_user
     </sql>
 
-    <select id="selectAll" resultType="top.mowang.pojo.User">
-        <include refid="selectUser"></include> order by id
+    <select id="selectAll" resultMap="top.mowang.pojo.User">
+        select * from t_user
     </select>
-    
+
     <select id="selectIf" resultType="top.mowang.pojo.User" >
         select * from t_user
         <where>

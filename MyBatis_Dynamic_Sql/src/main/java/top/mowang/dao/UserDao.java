@@ -19,6 +19,18 @@ public interface UserDao {
      * @param user
      * @description: 从数据库中查询所有接口
      * @author: Xuan Li
+     * @date: 2021/10/12 22:56
+     */
+    List<User> selectAll();
+
+
+
+    /**
+     * if查询用户
+     * @return list
+     * @param user
+     * @description: 从数据库中查询所有接口
+     * @author: Xuan Li
      * @date: 2021/10/10 18:19
     */
     List<User> selectIf(User user);

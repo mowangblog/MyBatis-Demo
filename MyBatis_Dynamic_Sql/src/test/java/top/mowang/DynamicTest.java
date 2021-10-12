@@ -1,5 +1,6 @@
 package top.mowang;
 
+import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 import top.mowang.dao.UserDao;
@@ -18,6 +19,17 @@ import java.util.List;
  * @date : 2021/10/12 00:35
  **/
 public class DynamicTest {
+    @Test
+    public void selectAll() throws IOException {
+        SqlSession sqlSession = MyBatisUtil.getSqlSession();
+        UserDao dao = sqlSession.getMapper(UserDao.class);
+        //使用分页插件进行分页查询
+        PageHelper.startPage(3,3);
+        List<User> list = dao.selectAll();
+        list.forEach(System.out::println);
+    }
+
+
     @Test
     public void selectIf() throws IOException {
         SqlSession sqlSession = MyBatisUtil.getSqlSession();
