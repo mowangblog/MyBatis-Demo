@@ -29,7 +29,6 @@ public class DynamicTest {
         list.forEach(System.out::println);
     }
 
-
     @Test
     public void selectIf() throws IOException {
         SqlSession sqlSession = MyBatisUtil.getSqlSession();
